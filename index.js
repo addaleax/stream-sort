@@ -30,6 +30,10 @@ function Sorter(opts) {
 
   this.currentList = [];
   this.isSorted = false;
+
+  this.on('finish', function() {
+    this.emit('result', this.get());
+  });
 }
 
 util.inherits(Sorter, stream.Writable);

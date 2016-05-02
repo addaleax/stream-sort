@@ -20,6 +20,24 @@ describe('Sorter', function() {
     assert.deepEqual(streamSorted, ownSorted);
   });
 
+  it('sorts an array, result event edition', function(done) {
+    var count = 10;
+    var instance = new Sorter(count);
+
+    var input = [];
+    for (var i = 0; i < 105; i++) {
+      input.push(Math.random());
+    }
+
+    input.forEach(instance.write.bind(instance));
+    instance.end();
+    instance.on('result', function(streamSorted) {
+      var ownSorted = input.slice().sort().reverse().slice(0, count);
+      assert.deepEqual(streamSorted, ownSorted);
+      done();
+    });
+  });
+
   it('sorts a specific array', function() {
     var count = 10;
     var instance = new Sorter(count);

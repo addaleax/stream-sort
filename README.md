@@ -19,8 +19,10 @@ const sorter = require('stream-sort');
 // Read objects from input...
 const writable = input.pipe(sorter(42));
 
-// Returns top 42 sorted entries.
+// Returns top 42 sorted entries, sync.
 console.log(writable.get());
+
+writable.on('result', (sorted) => { ... });
 ```
 
 API:
