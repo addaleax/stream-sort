@@ -30,12 +30,13 @@ describe('Sorter', function() {
     }
 
     input.forEach(instance.write.bind(instance));
-    instance.end();
     instance.on('result', function(streamSorted) {
       var ownSorted = input.slice().sort().reverse().slice(0, count);
       assert.deepEqual(streamSorted, ownSorted);
       done();
     });
+
+    instance.end();
   });
 
   it('sorts a specific array', function() {
