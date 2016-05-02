@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "nyc": "^6.4.1"
+  },
+  "scripts": {
+    "test": "nyc mocha"
+  },
+  "name": "stream-sort",
+  "description": "Pick the top `n` entries from an object-mode stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addaleax/stream-sort.git"
+  },
+  "keywords": [
+    "stream",
+    "sort",
+    "partial"
+  ],
+  "author": "Anna Henningsen <anna@addaleax.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/addaleax/stream-sort/issues"
+  },
+  "homepage": "https://github.com/addaleax/stream-sort#readme"
+}
