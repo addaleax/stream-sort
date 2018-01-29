@@ -17,11 +17,14 @@ Install:
 const sorter = require('stream-sort');
 
 // Read objects from input...
-const writable = input.pipe(sorter(42));
+const writable = input
+  .pipe(sorter(42))
+  .on('end', () => {
+    // Prints the top 42 sorted entries.
+    console.log(writable.get());
+  });
 
-// Returns top 42 sorted entries, sync.
-console.log(writable.get());
-
+// alternatively listen to the result event
 writable.on('result', (sorted) => { ... });
 ```
 
